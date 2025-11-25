@@ -22,15 +22,8 @@ boundaryField
 {
     movingWall
     {
-        type            noSlip;
-    }
-
-    rotatingWall
-    {
-        type            rotatingWallVelocity;
-        origin          (0 0 0);
-        axis            (0 0 1);
-        omega           2;
+        type            fixedValue;
+        value           uniform (1 0 0);
     }
 
     fixedWalls

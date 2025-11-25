@@ -22,14 +22,14 @@ DomainHeight=20  # Multiples Chord Length
 WakeLength=20 	 # Multiples Chord Length
 firstLayerHeight=0.001    # Multiples Chord Length
 growthRate=1.05				
-MaxCellSize=0.5	# Multiples of chordlength
+MaxCellSize=0.3	# Multiples of chordlength
 
 #These Values can be played with to improve mesh quality
 BLHeight=0.1    #Fraction of chord length - Height of BL block
-LeadingEdgeGrading=2
-TrailingEdgeGrading=4.3
-inletGradingFactor=10
-TrailingBlockAngle=5    	# Degrees
+LeadingEdgeGrading=1
+TrailingEdgeGrading=0.5
+inletGradingFactor=1
+TrailingBlockAngle=1    	# Degrees
 
 
 # --- Automated code ---

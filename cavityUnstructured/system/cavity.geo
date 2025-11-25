@@ -2,14 +2,15 @@
 // Parameter definitions
 // =======================================================================================
 L = 1.0;               // Length of the cavity
-lc = 0.01;             // Characteristic length for mesh refinement
+lc = 0.02;             // Characteristic length for mesh refinement
 z0 = 0.1;              // Small offset in z-direction
+w = 4;                // Stretching parameter
 
 // =======================================================================================
 // Points, Lines, Loops, Surfaces
 // =======================================================================================
 // Points
-Point(1) = {0, 0, 0, lc};           // Center
+Point(1) = {0, 0, 0, w*lc};           // Center
 Point(2) = {L/2, 0, 0, lc};         // Midpoint left
 Point(3) = {L/2, L/2, 0, lc};       // Top-right corner
 Point(4) = {0, L/2, 0, lc};         // Midpoint top

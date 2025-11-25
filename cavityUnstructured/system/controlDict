@@ -10,52 +10,39 @@ FoamFile
     version     2.0;
     format      ascii;
     class       dictionary;
-    object      PDRblockMeshDict;
+    object      controlDict;
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-scale   0.1;
+application     icoFoam;
 
-x
-{
-    points  (0 1);
-    nCells  (20);
-    ratios  (1);
-}
+startFrom       startTime;
 
-y
-{
-    points  (0 1);
-    nCells  (20);
-    ratios  (1);
-}
+startTime       0;
 
-z
-{
-    points  (0 0.1);
-    nCells  (1);
-    ratios  (1);
-}
+stopAt          endTime;
 
+endTime         0.5;
 
-boundary
-(
-    movingWall
-    {
-        type  wall;
-        faces (3);
-    }
-    fixedWalls
-    {
-        type  wall;
-        faces (0 1 2);
-    }
-    frontAndBack
-    {
-        type  empty;
-        faces (4 5);
-    }
-);
+deltaT          0.001;
+
+writeControl    timeStep;
+
+writeInterval   20;
+
+purgeWrite      0;
+
+writeFormat     ascii;
+
+writePrecision  6;
+
+writeCompression off;
+
+timeFormat      general;
+
+timePrecision   6;
+
+runTimeModifiable true;
 
 
 // ************************************************************************* //
