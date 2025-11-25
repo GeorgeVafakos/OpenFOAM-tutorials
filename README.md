@@ -7,7 +7,7 @@ OpenFOAM tutorials for educational purposes using `OpenFOAM v2406`. The followin
 - C-grid is created using a python script, obtained by [curiosityFluids](https://curiosityfluids.com/)
 - The airfoil shape is downloaded from the [airfoiltools](http://airfoiltools.com/) online database.
 - Turbulence model: RANS Spalart-Allmaras one equation model
-- Solver: simpleFoam
+- Solver: `simpleFoam`
 - Angles of Attack: 0-15 dgr
 
 ![Airfoil at 15 dgr AoA](airfoil/AoA15.png)
@@ -17,7 +17,7 @@ OpenFOAM tutorials for educational purposes using `OpenFOAM v2406`. The followin
 - Unsteady, lid-driven cavity case.
 - Mesh created using the `gmsh` tool.
 - Unstructured mesh, clustered near the cavity edges.
-- Solver: icoFoam
+- Solver: `icoFoam`
 
 ![Unstructured lid-driven cavity](cavityUnstructured/cavityUnstruct.png)
 
@@ -27,7 +27,7 @@ OpenFOAM tutorials for educational purposes using `OpenFOAM v2406`. The followin
 - The outer walls are stationary.
 - Mesh created using the `gmsh` tool.
 - Inner wall angular velocity $\omega=2$ rad/s.
-- Solver: icoFoam
+- Solver: `icoFoam`
 
 ![Cavity with an inner rotating wall](cavityRotatingInnerWall/rotatingWall.png)
 
@@ -40,6 +40,6 @@ OpenFOAM tutorials for educational purposes using `OpenFOAM v2406`. The followin
 - The rotation is modelled using the MRF technique.
 - The rotating shaft has been omited.
 - Assumed laminar flow.
-- Solver: rhoSimpleFoam
+- Solver: `rhoSimpleFoam`
 
 ![Continuous stirred-tank reactor](stirredTankReactor/mrf.png)
