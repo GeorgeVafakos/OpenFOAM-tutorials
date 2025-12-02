@@ -8,9 +8,9 @@ OpenFOAM tutorials for educational purposes using `OpenFOAM v2406`. The followin
 - The airfoil shape is downloaded from the [airfoiltools](http://airfoiltools.com/) online database.
 - Turbulence model: RANS Spalart-Allmaras one equation model
 - Solver: `simpleFoam`
-- Angles of Attack: 0-15 dgr
+- Angles of Attack: 0-10 dgr
 
-![Airfoil at 15 dgr AoA](airfoil/AoA15.png)
+![Airfoil at 15 dgr AoA](airfoil/AoA-10/AoA10.png)
 
 ## Unstructured lid-driven cavity
 
