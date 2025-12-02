@@ -352,14 +352,17 @@ Grading17_3=(rR**NFF)
 
 
 # Writes blockMeshDict file into system directory of current folder
+header = r"""/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  v2406                                 |
+|   \\  /    A nd           | Website:  www.openfoam.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+"""
+
 f = open('system/blockMeshDict' ,'w')
-f.write("/*--------------------------------*- C++ -*----------------------------------*\\ \n")
-f.write('  =========                 | \n')
-f.write('  \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox \n')
-f.write('   \\    /   O peration     | Website:  https://openfoam.org \n')
-f.write('    \\  /    A nd           | Version:  6 \n')
-f.write('     \\/     M anipulation  | \n')
-f.write("\\*---------------------------------------------------------------------------*/ \n")
+f.write(header)
 f.write('FoamFile \n')
 f.write('{ \n')
 f.write('    version     2.0; \n')
