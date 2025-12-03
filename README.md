@@ -43,3 +43,8 @@ OpenFOAM tutorials for educational purposes using `OpenFOAM v2406`. The followin
 - Solver: `rhoSimpleFoam`
 
 ![Continuous stirred-tank reactor](stirredTankReactor/mrf.png)
+
+## Cavity with heat transport
+
+- Add the heat transport equation in `icoFoam`, and solve for the temperature in the cavity case.
+- Create the user defined solver: `tempIcoFoam`.
