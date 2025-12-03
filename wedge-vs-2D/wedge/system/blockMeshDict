@@ -1,0 +1,112 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+  =========                 |
+  \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
+   \\    /   O peration     | Website:  https://openfoam.org
+    \\  /    A nd           | Version:  11  
+     \\/     M anipulation  |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    object      blockMeshDict;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+convertToMetres 1;
+
+// Geometric parameters
+D_e 1.0;
+L 20.0;
+thetaDgr 1;
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+// The rest of the code automatically creates the geometry, using the above parameters.
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+// Calculate parameters
+thetaRad #calc "degToRad($thetaDgr)";
+R_e #calc "$D_e /2.0";
+Z_beg #calc "0";
+Z_end #calc "$L";
+
+// Calculate vertices' coordinates
+X0 #calc "0";                                     Y0 #calc "0";
+X1 #calc "-$R_e*sin(0.5*$thetaRad)";              Y1 #calc "$R_e*cos(0.5*$thetaRad)";
+X2 #calc "$R_e*sin(0.5*$thetaRad)";               Y2 #calc "$R_e*cos(0.5*$thetaRad)";
+
+
+vertices
+(
+    ($X0 $Y0 $Z_beg)            // 0
+    ($X1 $Y1 $Z_beg)            // 1
+    ($X2 $Y2 $Z_beg)            // 2
+
+    ($X0 $Y0 $Z_end)            // 3
+    ($X1 $Y1 $Z_end)            // 4
+    ($X2 $Y2 $Z_end)            // 5
+);
+
+blocks
+(
+    hex (0 3 3 0 1 4 5 2) (150 1 20) simpleGrading (5 1 1)      // Block 0
+);
+
+boundary
+(
+    inlet
+    {
+        type patch;
+        faces
+        (
+            (0 0 1 2)   // From Block 0
+        );
+    }
+
+    outlet
+    {
+        type patch;
+        faces
+        (
+            (3 3 4 5)   // From Block 0
+        );
+    }
+
+    top
+    {
+        type wall;
+        faces
+        (
+            (1 4 5 2)   // From Block 0
+        );
+    }
+
+    axis
+    {
+        type empty;
+        faces
+        (
+            (0 3 3 0)   // From Block 0
+        );
+    }
+
+    frontWedge
+    {
+        type wedge;
+        faces
+        (
+            (0 3 4 1)   // From Block 0
+        );
+    }
+
+    backWedge
+    {
+        type wedge;
+        faces
+        (
+            (0 2 5 3)   // From Block 0
+        );
+    }
+
+);
